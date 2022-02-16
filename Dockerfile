@@ -11,8 +11,11 @@ RUN apt-get update && \
         libboost-thread-dev \
         libjson-c4 \
         libxxf86vm-dev && \
+        ffmpeg && \
     rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
 
+RUN apt-get update && \
+    apt-get install -y vim
 # #### Install common library ####
 # RUN apt-get update && \
 #     apt-get -y dist-upgrade && \
@@ -26,10 +29,10 @@ RUN apt-get update && \
 #     apt-get clean && \
 #     rm -rf /var/lib/apt/lists/*
 
-# #### Setting timezone, language ####
-# ENV TZ=Asia/Tokyo \
-#     LANG=ja_JP.utf8 \
-#     LC_COLLATE=C
+#### Setting timezone, language ####
+ENV TZ=Asia/Tokyo \
+    LANG=ja_JP.utf8 \
+    LC_COLLATE=C
 
 # #### Install other libs ####
 # RUN apt-get -y update && \
@@ -39,8 +42,8 @@ RUN apt-get update && \
 
 # RUN pip3 install -U pip
 WORKDIR /app
-# COPY /requirements.txt /app/requirements.txt
+COPY /requirements.txt /app/requirements.txt
 
-# RUN pip3 install -r /app/requirements.txt
+RUN pip3 install -r /app/requirements.txt
 
 CMD tail -f /dev/null
