@@ -7,3 +7,8 @@ $ docker-compose build
 ```bash
 $ docker-compose up -d
 ```
+
+## enter docker container
+```
+$ docker exec -itu root:root <container> bash
+```

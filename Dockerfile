@@ -3,6 +3,16 @@ FROM openvino/ubuntu20_dev
 #### Setting noninteractive user install ####
 ENV DEBIAN_FRONTEND noninteractive
 
+USER root
+WORKDIR /tmp
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        libboost-filesystem-dev \
+        libboost-thread-dev \
+        libjson-c4 \
+        libxxf86vm-dev && \
+    rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
+
 # #### Install common library ####
 # RUN apt-get update && \
 #     apt-get -y dist-upgrade && \
