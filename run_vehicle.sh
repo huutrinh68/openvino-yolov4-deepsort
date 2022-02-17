@@ -7,7 +7,7 @@ OUTPUT_VIDEO=/app/data/result/20211215_102922.mp4
 
 python3 ${DEMO_NAME}.py \
     -i $INPUT_VIDEO \
-    --m_detector ${DEMO_PATH}/${DEMO_NAME}/python/intel/vehicle-detection-adas-0002/FP32/xxxx.xml \
-    --m_reid ${DEMO_PATH}/${DEMO_NAME}/python/intel/vehicle-reid-0001/FP32/vehicle-reid-0001.xml \
+    --m_detector /app/intel/vehicle-detection-adas-0002/FP32/vehicle-detection-adas-0002.xml \
+    --m_reid /app/public/vehicle-reid-0001/FP32/vehicle-reid-0001.xml \
     --output_video $OUTPUT_VIDEO \
     --config configs/vehicle.py 

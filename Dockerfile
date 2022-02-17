@@ -11,11 +11,11 @@ RUN apt-get update && \
         libboost-thread-dev \
         libjson-c4 \
         libxxf86vm-dev && \
-        ffmpeg && \
     rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
 
 RUN apt-get update && \
-    apt-get install -y vim
+    apt-get install -y vim && \
+    apt-get install -y ffmpeg
 # #### Install common library ####
 # RUN apt-get update && \
 #     apt-get -y dist-upgrade && \
@@ -43,6 +43,7 @@ ENV TZ=Asia/Tokyo \
 # RUN pip3 install -U pip
 WORKDIR /app
 COPY /requirements.txt /app/requirements.txt
+COPY /visualization.py /opt/intel/openvino_2021.4.752/deployment_tools/open_model_zoo/demos/multi_camera_multi_target_tracking_demo/python/utils/visualization.py
 
 RUN pip3 install -r /app/requirements.txt
 
