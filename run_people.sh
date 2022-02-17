@@ -1,4 +1,4 @@
-DEMO_PATH=/opt/intel/openvino/deployment_tools/open_model_zoo/demos
+DEMO_PATH=/opt/intel/openvino_2021.4.752/deployment_tools/open_model_zoo/demos
 DEMO_NAME=multi_camera_multi_target_tracking_demo
 cd ${DEMO_PATH}/${DEMO_NAME}/python
 
